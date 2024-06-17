@@ -1,0 +1,11 @@
+@mixin styleText($color, $fs, $fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin gridDisplay ($display, $templates, $gap) {
+    display: $display;
+    grid-template-columns: $templates;
+    gap: $gap;
+}   

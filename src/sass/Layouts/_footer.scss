@@ -1,0 +1,5 @@
+footer {
+    padding: 75px 0;
+    background: $bg-3;
+    @include styleText(white, 1rem, 400)
+}

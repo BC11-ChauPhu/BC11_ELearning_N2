@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import '../src/sass/style.scss'
 import useCustomRoutes from './routes/useCustomRoutes';
 

@@ -1,11 +1,10 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import CourseList from '../components/CourseList'
 
 const Home = () => {
     return (
-        <>
-
+        <>  
+            <CourseList/>
         </>
     )
 }

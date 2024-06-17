@@ -1,17 +1,18 @@
 //Helpers
-@import "./sass/Helpers/mixin";
-@import "./sass/Helpers/variables";
+@import "./Helpers/mixin";
+@import "./Helpers/variables";
 
 //Vendors
 
 //Base
-@import "./sass/Base/reset";
+@import "./Base/reset";
 
 //Components
+@import './Components/CoursesList';
 
 //Layouts
-@import "./sass/Layouts/header"
-
+@import "./Layouts/header";
+@import "./Layouts/footer"
 //Pages
 
 //Themes

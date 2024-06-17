@@ -17,6 +17,7 @@ const useCustomRoutes = () => {
                     path: 'home',
                     element: <Home/>
                 }
+
             ]
         }
     ])
