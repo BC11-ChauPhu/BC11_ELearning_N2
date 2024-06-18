@@ -1,5 +1,35 @@
 footer {
-    padding: 75px 0;
     background: $bg-3;
-    @include styleText(white, 1rem, 400)
+    @include styleText(white, 1rem, 400);
+
+    .row {
+        padding: 75px 0;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        @include styleText(transparent, 18px, 700);
+        letter-spacing: 2px;
+        background: $linearbg-2;
+        background-clip: text;
+        margin-bottom: 15px;
+    }
+
+    a {
+        @include styleText(white, 13px, 400);
+        letter-spacing: 1.5px;
+        transition: 0.5s all;
+    }
+
+    i {
+        width: 25px;
+    }
+
+    .footer-copyright {
+        p {
+            margin: 0;
+            padding: 1rem ;
+            border-top: 1px solid rgba($color: #fff, $alpha: .2);
+        }
+    }
 }

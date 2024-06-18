@@ -2,8 +2,18 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+  window.onscroll = () => { scrollHeader() }
+
+  const scrollHeader = () => {
+    if (document.documentElement.scrollTop > 10) {
+      document.querySelector('.header').classList = 'header active'
+    } else {
+      document.querySelector('.header').classList = 'header'
+    }
+  }
+
   return (
-    <header>
+    <header className='header'>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <a className="navbar-brand" href="#">Navbar</a>
@@ -17,20 +27,6 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Link</a>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div className="dropdown-menu">
-                  <a className="dropdown-item" href="#">Action</a>
-                  <a className="dropdown-item" href="#">Another action</a>
-                  <div className="dropdown-divider" />
-                  <a className="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">

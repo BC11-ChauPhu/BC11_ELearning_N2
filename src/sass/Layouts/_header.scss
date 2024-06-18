@@ -1,9 +1,19 @@
-header {
-    background: none;
-    padding-bottom: 75px ;
-    position: absolute;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    padding-bottom: 75px ;
+    background: none;
+    transition: all .5s;
     nav {
         background: none !important;
     }
 }
+
+.header.active {
+    transition: all .5s;
+    background: $bg-3;
+    padding: 15px 0;
+}
+
