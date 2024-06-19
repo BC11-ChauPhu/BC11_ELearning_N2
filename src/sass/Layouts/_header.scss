@@ -3,17 +3,36 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding-bottom: 75px ;
+    padding: 15px 0 75px 0;
     background: none;
-    transition: all .5s;
+    transition: all 0.5s;
+
     nav {
-        background: none !important;
+        @include gridDisplay(grid, 25% 75%, 0px);
+        align-items: center;
+
+        .logo {
+            padding: 15px;
+        }
+
+        .navlinks {
+            text-align: right;
+
+            .navlinks-item {
+                @include styleText(white, 18px, 500);
+                padding: 15px 20px;
+                display: inline-block;
+                transition: all 0.5s;
+                &:hover {
+                    color: $color-1;
+                }
+            }
+        }
+    }
+
+    &.active {
+        transition: all 0.5s;
+        background: $bg-3;
+        padding: 15px 0;
     }
 }
-
-.header.active {
-    transition: all .5s;
-    background: $bg-3;
-    padding: 15px 0;
-}
-

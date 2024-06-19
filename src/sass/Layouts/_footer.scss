@@ -10,7 +10,7 @@ footer {
         text-transform: uppercase;
         @include styleText(transparent, 18px, 700);
         letter-spacing: 2px;
-        background: $linearbg-2;
+        background: $linearbg-1;
         background-clip: text;
         margin-bottom: 15px;
     }

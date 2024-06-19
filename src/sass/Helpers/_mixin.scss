@@ -9,3 +9,10 @@
     grid-template-columns: $templates;
     gap: $gap;
 }   
+
+@mixin styleButton ($background, $padding, $border, $bd) {
+    background-image: $background;
+    padding: $padding;
+    border: $border;
+    border-radius: $bd;
+}
