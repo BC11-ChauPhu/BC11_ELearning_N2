@@ -6,7 +6,7 @@
     padding: 15px 0 75px 0;
     background: none;
     transition: all 0.5s;
-
+    z-index: 1;
     nav {
         @include gridDisplay(grid, 25% 75%, 0px);
         align-items: center;
