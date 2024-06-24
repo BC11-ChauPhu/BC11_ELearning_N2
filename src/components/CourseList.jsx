@@ -32,7 +32,7 @@ const CourseList = () => {
         <section id='coursesList'>
             <div className="container">
                 <div className="banner">
-                    <h2>NUMEROUS COURSES <br /> TO CHOOSE FORM</h2>
+                    <h2>numerous courses to choose from</h2>
                 </div>
                 <Slider {...settings} className="coursesList-content ">
 

@@ -1,0 +1,37 @@
+#subBanner {
+    @include styleText(white, default, 400);
+    background: $bg-3;
+    padding: 150px 0;
+
+    .subBanner-title {
+        margin-bottom: 40px;
+        text-align: center;
+        h2 {
+            @include styleText(white, default, 800);
+            text-transform: capitalize;
+        }
+        p {
+            @include styleText(#999, default, 400)
+        }
+
+
+    
+    }
+
+    .subBanner-content {
+        @include gridDisplay(grid, repeat(3, 1fr), 10px);
+
+        .subBanner-item {
+            .subBanner-item-title {
+                @include styleText(white, 18px, 700);
+                text-transform: capitalize;
+                i {
+                    margin-right: 10px;
+                }
+            }
+            .subBanner-item-description {
+                @include styleText($color-2, default, 400)
+            }
+        }
+    }
+}

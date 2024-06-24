@@ -14,7 +14,8 @@
     .banner {
         h2 {
             text-align: center;
-            @include styleText(white, 3rem, 800);
+            @include styleText(white, default, 800);
+            text-transform: capitalize;
             margin-bottom: 40px;
         }
     }
