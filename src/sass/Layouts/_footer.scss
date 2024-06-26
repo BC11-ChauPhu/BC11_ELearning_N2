@@ -1,6 +1,7 @@
 footer {
     background: $bg-3;
     @include styleText(white, 1rem, 400);
+    height: 360px;
 
     .row {
         padding: 75px 0;

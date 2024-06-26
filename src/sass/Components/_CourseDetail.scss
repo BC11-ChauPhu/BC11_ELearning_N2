@@ -1,0 +1,18 @@
+#courseDetail {
+    padding: 150px 0;
+    background-color: $bg-2;
+    height: calc(100vh - 360px);
+    @include styleText(white, default, 400)
+;
+    img {
+        width: 100%;
+    }
+    
+    .courseDetail-content {
+        @include gridDisplay(grid, 40% 60%, 30px);
+
+        h1 {
+            text-transform: capitalize;
+        }
+    }
+}

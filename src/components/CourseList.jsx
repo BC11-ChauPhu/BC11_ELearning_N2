@@ -3,11 +3,13 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { http } from '../service/config'
+import { useNavigate } from 'react-router-dom'
 
 const CourseList = () => {
+    const navigate = useNavigate()
 
     const settings = {
-        dots:true,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
@@ -27,7 +29,6 @@ const CourseList = () => {
                 console.log(err)
             })
     }, [])
-    console.log(courses)
     return (
         <section id='coursesList'>
             <div className="container">
@@ -38,7 +39,9 @@ const CourseList = () => {
 
                     {courses?.map((item, index) => {
                         return (
-                            <div className="courseList-item">
+                            <div className="courseList-item" onClick={() => {
+                                navigate(`/course/${item.maKhoaHoc}/details`)
+                            }}>
                                 <div className="courseList-image">
                                     <img src={item.hinhAnh} alt="" />
                                 </div>
@@ -49,9 +52,6 @@ const CourseList = () => {
                         )
                     })}
                 </Slider>
-
-
-
             </div>
         </section>
 

@@ -16,3 +16,8 @@
     border: $border;
     border-radius: $bd;
 }
+
+@mixin styleButtonBackground ($bgs, $bgp) {
+    background-size: $bgs;
+    background-position: $bgp;
+}
