@@ -13,7 +13,7 @@
             img {
                 width: 100%;
                 height: 100%;
-                border-radius: 8px;
+                border-radius: $bd-1;
             }
         }
 
@@ -29,11 +29,9 @@
                 @include styleButton($linearbg-1, 11px 30px, none, 50px);
                 @include styleText(white, 18px, 500);
                 @include gridDisplay(grid, 90% 10%, 0px);
+                @include styleButtonBackground(200%, right);
                 align-items: center;
-                background-size: 200%;
-                background-position: right;
                 transition: all .5s;
-
                 
                 i {
                     transition: .5s;

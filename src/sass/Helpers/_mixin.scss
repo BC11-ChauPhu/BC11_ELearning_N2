@@ -21,3 +21,8 @@
     background-size: $bgs;
     background-position: $bgp;
 }
+
+@mixin styleBorder ($border, $bd) {
+    border: $border;
+    border-radius: $bd;
+}
