@@ -2,7 +2,8 @@
     padding: 150px 0;
     background-color: $bg-2;
     height: calc(100vh - 360px);
-    @include styleText(white, default, 400)
+    @include styleText(white, default, 400);
+    z-index: 1;
 ;
     img {
         width: 100%;

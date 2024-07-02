@@ -3,6 +3,7 @@
     // background-image: $bg-1;
     background-color: $bg-2;
     color: white;
+    z-index: 1;
 
     img {
         @include styleBorder(1px solid black, $bd-1);

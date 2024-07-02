@@ -48,10 +48,15 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    z-index: 0;
+    z-index: -1;
     background: rgba($color: #000000, $alpha: 0.8);
     opacity: 0;
     transition: $transition;
+
+    .form-error-message {
+        @include styleText(red, default, 400);
+        margin-bottom: 20px
+    }
 
     &.active {
         opacity: 1;
@@ -85,6 +90,8 @@
                     }
                 }
 
+
+
                 button {
                     @include styleText(white, default, 500);
                     @include styleButton($linearbg-1, 11px 25px, none, $bd-1);
@@ -105,6 +112,13 @@
 
             span {
                 @include styleText($color-1, default, 400);
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    color: rgba($color: $color-1, $alpha: 0.8);
+                    transition: $transition;
+                }
             }
         }
     }
@@ -119,10 +133,15 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    z-index: 0;
+    z-index: -1;
     background: rgba($color: #000000, $alpha: 0.8);
     opacity: 0;
     transition: $transition;
+
+    .form-error-message {
+        @include styleText(red, default, 400);
+        margin-bottom: 20px
+    }
 
     &.active {
         opacity: 1;
@@ -176,6 +195,13 @@
 
             span {
                 @include styleText($color-1, default, 400);
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    color: rgba($color: $color-1, $alpha: 0.8);
+                    transition: $transition;
+                }
             }
         }
     }

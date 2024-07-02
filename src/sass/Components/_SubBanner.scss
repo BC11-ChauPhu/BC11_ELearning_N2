@@ -2,6 +2,7 @@
     @include styleText(white, default, 400);
     background: $bg-3;
     padding: 150px 0;
+    z-index: 1;
 
     .subBanner-title {
         margin-bottom: 40px;
