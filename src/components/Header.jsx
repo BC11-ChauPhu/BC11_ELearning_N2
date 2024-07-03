@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../img/logo-landing-1.png'
-import { ErrorMessage, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import { http } from '../service/config'
 
 const Header = () => {
@@ -46,12 +46,6 @@ const Header = () => {
     } else if (values.password.length < 8) {
       errors.password = 'Password must have at least 8 characters *'
     }
-
-    if (!/^[A-Z]/.test(values.signUpPassword)) {
-      errors.signUpPassword = 'Password must start with an uppercase letter *'
-    } else if (values.signUpPassword.length < 8) {
-      errors.signUpPassword = 'Password must have at least 8 characters *'
-    }
     return errors
   }
 
@@ -84,25 +78,84 @@ const Header = () => {
   })
 
   let state = false;
-  if (localStorage.getItem('User')) {
+  if (localStorage.getItem('LoggedInUser')) {
     console.log('logged in')
     state = true
     // document.querySelector('.header-login').innerHTML = localStorage.getItem('User')
   }
 
   // SIGNUP HANDLE
+  class User {
+    constructor(taiKhoan, matKhau, hoTen, soDT, email) {
+      this.taiKhoan = taiKhoan
+      this.matKhau = matKhau
+      this.hoTen = hoTen
+      this.soDT = soDT
+      this.maNhom = 'GP06'
+      this.email = email
+    }
+  }
+  class UserList {
+    constructor() {
+      this.userList = []
+    }
+    addUser = function (userObj) {
+      this.userList.push(userObj)
+    }
+  }
+
+  const userArr = new UserList()
+
+  const signUpFunc = () => {
+    http
+      .post('/api/QuanLyNguoiDung/DangKy', {
+        taiKhoan: signUp.values.signUpUserName,
+        matKhau: signUp.values.signUpPassword,
+        hoTen: signUp.values.fullName,
+        soDT: signUp.values.phone,
+        maNhom: signUp.values.maNhom,
+        email: signUp.values.signUpEmail
+      })
+      .then((res) => {
+        window.alert("Account created successfully")
+        let user = new User(signUp.values.signUpUserName, signUp.values.signUpPassword, signUp.values.fullName, signUp.values.phone, signUp.values.signUpEmail)
+        userArr.addUser(user)
+        localStorage.setItem('UserList', JSON.stringify(userArr.userList))
+      })
+      .catch((err) => {
+        console.log(signUp.values.signUpUserName)
+        console.log(typeof(signUp.values.signUpUserName))
+        console.log(signUp.values.signUpPassword)
+        console.log(signUp.values.fullName)
+        console.log(signUp.values.phone)
+        console.log(signUp.values.maNhom)
+        console.log(signUp.values.signUpEmail)
+        console.log(err)
+        alert(err)
+      })
+  }
+
+  const signUpValidate = values => {
+    const errors = {}
+    if (!/^[A-Z]/.test(values.signUpPassword)) {
+      errors.signUpPassword = 'Password must start with an uppercase letter *'
+    } else if (values.signUpPassword.length < 8) {
+      errors.signUpPassword = 'Password must have at least 8 characters *'
+    }
+    return errors
+  }
+
   const signUp = useFormik({
     initialValues: {
-      taiKhoan: '',
-      matKhau: '',
-      hoTen: '',
-      soDT: '',
-      maNhom: "GP06",
-      email: ''
+      signUpUserName: '',
+      signUpPassword: '',
+      fullName: '',
+      phone: '',
+      maNhom: 'GP01',
+      signUpEmail: ''
     },
-    onSubmit: values => {
-
-    }
+    validate: signUpValidate,
+    onSubmit: signUpFunc
   })
 
   return (
@@ -132,7 +185,7 @@ const Header = () => {
                 document.querySelector('#loginForm').classList.toggle('active')
               }}>Log In</NavLink> */}
               <NavLink className='navlinks-item' onClick={() => {
-                localStorage.removeItem('User')
+                localStorage.removeItem('LoggedInUser')
               }}>Log Out</NavLink>
             </div>
           </nav>
@@ -208,7 +261,7 @@ const Header = () => {
                   value={signUp.values.signUpPassword}
                   placeholder='Password'
                   required />
-                {signUp.errors.signUpPassword ? <div className='form-error-message'>{signUp.errors.signUpPassword}</div> : null}
+                {signUp.errors.signUpPassword ? <div className='form-error-message' >{signUp.errors.signUpPassword}</div> : null}
               </div>
               <div className="form-group">
                 <input
@@ -228,7 +281,7 @@ const Header = () => {
                   onChange={signUp.handleChange}
                   value={signUp.values.phone}
                   placeholder='Phone Number'
-                  required /> 
+                  required />
               </div>
               <div className="form-group">
                 <input
