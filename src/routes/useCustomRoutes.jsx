@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import { useRoutes } from "react-router-dom"
 import CourseDetailTemplate from '../templates/CourseDetailTemplate'
 import CourseDetailPage from '../pages/CourseDetailPage'
+import UserInfoPage from '../pages/UserInfoPage'
 
 const useCustomRoutes = () => {
     const myRoutes = useRoutes([
@@ -18,8 +19,11 @@ const useCustomRoutes = () => {
                 {
                     path: 'home',
                     element: <Home/>
+                },
+                {
+                    path: 'user',
+                    element: <UserInfoPage/>
                 }
-
             ]
         },
         {

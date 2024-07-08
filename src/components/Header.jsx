@@ -57,9 +57,9 @@ const Header = () => {
       })
       .then((res) => {
         console.log(res.data)
-        localStorage.setItem('User', JSON.stringify(res.data))
+        localStorage.setItem('LoggedInUser', JSON.stringify(res.data))
         window.alert('Login successfully')
-
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err)
@@ -79,7 +79,6 @@ const Header = () => {
 
   let state = false;
   if (localStorage.getItem('LoggedInUser')) {
-    console.log('logged in')
     state = true
     // document.querySelector('.header-login').innerHTML = localStorage.getItem('User')
   }
@@ -121,6 +120,7 @@ const Header = () => {
         let user = new User(signUp.values.signUpUserName, signUp.values.signUpPassword, signUp.values.fullName, signUp.values.phone, signUp.values.signUpEmail)
         userArr.addUser(user)
         localStorage.setItem('UserList', JSON.stringify(userArr.userList))
+        window.location.reload();
       })
       .catch((err) => {
         console.log(signUp.values.signUpUserName)
@@ -174,7 +174,7 @@ const Header = () => {
               <NavLink className='navlinks-item' to='/'>What's New</NavLink>
               {
                 state ? (
-                  <NavLink className='navlinks-item' to='/'>Profile</NavLink>
+                  <NavLink className='navlinks-item' to='/user'>Profile</NavLink>
                 ) : (
                   <NavLink className='navlinks-item header-login' to='/' onClick={() => {
                     document.querySelector('#loginForm').classList.toggle('active')
@@ -186,6 +186,7 @@ const Header = () => {
               }}>Log In</NavLink> */}
               <NavLink className='navlinks-item' onClick={() => {
                 localStorage.removeItem('LoggedInUser')
+                window.location.reload();
               }}>Log Out</NavLink>
             </div>
           </nav>

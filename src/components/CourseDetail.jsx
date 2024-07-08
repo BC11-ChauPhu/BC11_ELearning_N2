@@ -15,7 +15,6 @@ const CourseDetail = () => {
                 console.log(err)
             })
     }, [])
-    console.log(course)
     return (
         <section id="courseDetail">
             <div className="courseDetail-content container">

@@ -1,0 +1,44 @@
+#userInfo {
+    background: $bg-2;
+    padding: 150px 0;
+
+    h1 {
+        @include styleText(white, default, 700);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    button {
+        @include styleButton($linearbg-1, 11px 30px, none, 50px);
+        @include styleButtonBackground(200%, right);
+        @include styleText(white, default, 700);
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition;
+
+        &:hover {
+            background-position: left
+        }
+    }
+
+    .userInfo-content {
+        @include styleText(white, default, 400);
+        @include styleBorder(1px solid transparent, 10px);
+        background-color: $bg-3;
+        margin-bottom: 20px;
+
+        p {
+            margin: 0;
+        }
+        div {
+            padding: 15px;
+            border-bottom: 1px solid rgba($color: white, $alpha: 0.3);
+            
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+}
