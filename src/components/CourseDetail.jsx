@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { http } from '../service/config'
+import { toast } from 'react-toastify'
 
 const CourseDetail = () => {
     const { id } = useParams()
@@ -12,6 +13,10 @@ const CourseDetail = () => {
                 setCourse(res.data)
             })
             .catch((err) => {
+                toast.error('There was an error, please try again later.', {
+                    autoClose: 3000,
+                    position: 'top-center',
+                })
                 console.log(err)
             })
     }, [])

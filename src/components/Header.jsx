@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import { http } from '../service/config'
 
 const Header = () => {
+  
   // SCROLL HEADER FUNCTION
   const scrollHeader = () => {
     if (document.documentElement.scrollTop > 10) {
@@ -184,9 +185,8 @@ const Header = () => {
               {/* <NavLink className='navlinks-item header-login' to='/' onClick={() => {
                 document.querySelector('#loginForm').classList.toggle('active')
               }}>Log In</NavLink> */}
-              <NavLink className='navlinks-item' onClick={() => {
+              <NavLink className='navlinks-item' to='/home' onClick={() => {
                 localStorage.removeItem('LoggedInUser')
-                window.location.reload();
               }}>Log Out</NavLink>
             </div>
           </nav>
